@@ -16,7 +16,26 @@ class App {
     // getting rid of whitespace at start & end of selection
     const selectionText = selection.toString().trim();
     if(!selectionText) return;
-    // do something with selection
+    // get selection virtual reference
+
+    const selectionRange = selection.getRangeAt(0);
+
+    // getBoundingClientRect will trigger the browser
+    // to calculate style and layout, a bit of performance bottleneck
+    // read about here:
+    // https://gist.github.com/paulirish/5d52fb081b3570c81e3a
+    const selectionRect = selectionRange.getBoundingClientRect();
+
+    const virtualReference = {
+      getBoundingClientRect() {
+        return selectionRect;
+      },
+      clientHeight: selectionRect.height,
+      clientWidth: selectionRect.width,
+      text: selectionText
+    }
+
+    // do something with selection virtual reference
   }
 
   init() {
