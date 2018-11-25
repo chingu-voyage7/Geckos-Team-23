@@ -28,9 +28,16 @@ class App {
 
         // if no currentSelection, abort
         if(!this.currentSelection) return;
-        // Do something with currentSelection
+        // show tooltip with selection text
+        this.showTooltip();
       }
     }
+  }
+
+  showTooltip() {
+    tippy(this.currentSelection, {
+      content: this.currentSelection.text
+    });
   }
 
   getSelectionDetails() {
