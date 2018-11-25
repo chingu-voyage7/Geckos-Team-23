@@ -1,12 +1,20 @@
 class App {
 
+  constructor() {
+    this.currentSelection = null;
+  }
+
   onUserSelect() {
     // we want the tooltip to show once the user
     // stops selecting
     document.onselectionchange = () => {
       document.onmouseup = () => {
         // Get user selection
-        this.getSelectionDetails();
+        this.currentSelection = this.getSelectionDetails();
+
+        // if no currentSelection, abort
+        if(!this.currentSelection) return;
+        // Do something with currentSelection
       }
     }
   }
@@ -35,7 +43,7 @@ class App {
       text: selectionText
     }
 
-    // do something with selection virtual reference
+    return virtualReference;
   }
 
   init() {
