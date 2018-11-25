@@ -50,8 +50,11 @@ class App {
   }
 
   showTooltip() {
+    const content = createLookupButton(
+      this.currentSelection.text);
+
     tippy(this.currentSelection, {
-      content: this.currentSelection.text
+      content
     });
   }
 
@@ -93,3 +96,21 @@ window.addEventListener('DOMContentLoaded', () => {
   const app = new App();
   app.init();
 });
+
+/*=========== Utils ============*/
+
+/**
+ * @description creates the lookup button to insert in tooltip
+ * @param {string} selectionText - the selection text
+ * @returns lookup button Node
+ */
+function  createLookupButton(selectionText) {
+  const lookupButton = document.createElement('button');
+  lookupButton.className = 'tippy-lookup-button';
+  lookupButton.textContent = 'lookup?';
+  lookupButton.addEventListener('click', event => {
+    // Do something on lookup button click
+
+  }, false);
+  return lookupButton;
+}
