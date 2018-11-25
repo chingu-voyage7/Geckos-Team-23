@@ -41,7 +41,11 @@ class App {
     // also triggers the mouseup event where we
     // show the tooltip
     document.onmousedown = event => {
-      // Do something on un-selection
+      // we check if there is a current selection
+      if(this.currentSelection) {
+        this.currentSelection._tippy.hide();
+        this.currentSelection = null;
+      }
     }
   }
 
