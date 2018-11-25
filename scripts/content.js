@@ -34,6 +34,17 @@ class App {
     }
   }
 
+  onUserUnselect() {
+    // we hide the tooltip on mousedown
+    // because if we did it on click
+    // it'll hide immediately, since click event
+    // also triggers the mouseup event where we
+    // show the tooltip
+    document.onmousedown = event => {
+      // Do something on un-selection
+    }
+  }
+
   showTooltip() {
     tippy(this.currentSelection, {
       content: this.currentSelection.text
@@ -69,6 +80,8 @@ class App {
 
   init() {
     this.onUserSelect();
+
+    this.onUserUnselect();
   }
 }
 
