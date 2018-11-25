@@ -92,10 +92,8 @@ class App {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
   const app = new App();
   app.init();
-});
 
 /*=========== Utils ============*/
 
