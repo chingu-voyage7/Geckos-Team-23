@@ -1,3 +1,17 @@
+// setting non-changing options
+tippy.setDefaults({
+  // tooltip will be shown "manually"
+  trigger: "manual",
+  // show tooltip immediately once the instance is created
+  showOnInit: true,
+  // don't hide tooltip when its reference is clicked
+  hideOnClick: false,
+  // showing arrow pointing to tooltip's reference
+  arrow: true,
+  // tooltip is interactive (clickable/hover'able')
+  interactive: true,
+});
+
 class App {
 
   constructor() {
