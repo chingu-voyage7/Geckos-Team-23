@@ -9,11 +9,10 @@ tippy.setDefaults({
   // showing arrow pointing to tooltip's reference
   arrow: true,
   // tooltip is interactive (clickable/hover'able')
-  interactive: true,
+  interactive: true
 });
 
 class App {
-
   constructor() {
     this.currentSelection = null;
   }
@@ -24,17 +23,17 @@ class App {
     document.onselectionchange = () => {
       document.onmouseup = () => {
         // if we have a current selection, abort
-        if(this.currentSelection) return;
+        if (this.currentSelection) return;
 
         // Get user selection
         this.currentSelection = this.getSelectionDetails();
 
         // if no currentSelection, abort
-        if(!this.currentSelection) return;
+        if (!this.currentSelection) return;
         // show tooltip with selection text
         this.showTooltip();
-      }
-    }
+      };
+    };
   }
 
   onUserUnselect() {
@@ -45,16 +44,15 @@ class App {
     // show the tooltip
     document.onmousedown = event => {
       // we check if there is a current selection
-      if(this.currentSelection && !this.isTooltip(event.target)) {
+      if (this.currentSelection && !this.isTooltip(event.target)) {
         this.currentSelection._tippy.hide();
         this.currentSelection = null;
       }
-    }
+    };
   }
 
   showTooltip() {
-    const content = createLookupButton(
-      this.currentSelection.text);
+    const content = this.createLookupButton(this.currentSelection.text);
 
     tippy(this.currentSelection, {
       content
@@ -65,16 +63,14 @@ class App {
    * check if given node is tooltip itself or its child
    */
   isTooltip(node) {
-    return this.currentSelection
-      ._tippy.popper.contains(node);
+    return this.currentSelection._tippy.popper.contains(node);
   }
-
 
   getSelectionDetails() {
     const selection = window.getSelection();
     // getting rid of whitespace at start & end of selection
     const selectionText = selection.toString().trim();
-    if(!selectionText) return;
+    if (!selectionText) return;
     // get selection virtual reference
 
     const selectionRange = selection.getRangeAt(0);
@@ -92,9 +88,28 @@ class App {
       clientHeight: selectionRect.height,
       clientWidth: selectionRect.width,
       text: selectionText
-    }
+    };
 
     return virtualReference;
+  }
+
+  /**
+   * @description creates the lookup button to insert in tooltip
+   * @param {string} selectionText - the selection text
+   * @returns lookup button Node
+   */
+  createLookupButton(selectionText) {
+    const lookupButton = document.createElement("button");
+    lookupButton.className = "tippy-lookup-button";
+    lookupButton.textContent = "lookup?";
+    lookupButton.addEventListener(
+      "click",
+      event => {
+        // Do something on lookup button click
+      },
+      false
+    );
+    return lookupButton;
   }
 
   init() {
@@ -106,21 +121,3 @@ class App {
 
 const app = new App();
 app.init();
-
-/*=========== Utils ============*/
-
-/**
- * @description creates the lookup button to insert in tooltip
- * @param {string} selectionText - the selection text
- * @returns lookup button Node
- */
-function  createLookupButton(selectionText) {
-  const lookupButton = document.createElement('button');
-  lookupButton.className = 'tippy-lookup-button';
-  lookupButton.textContent = 'lookup?';
-  lookupButton.addEventListener('click', event => {
-    // Do something on lookup button click
-
-  }, false);
-  return lookupButton;
-}
