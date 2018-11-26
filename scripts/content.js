@@ -23,6 +23,9 @@ class App {
     // stops selecting
     document.onselectionchange = () => {
       document.onmouseup = () => {
+        // if we have a current selection, abort
+        if(this.currentSelection) return;
+
         // Get user selection
         this.currentSelection = this.getSelectionDetails();
 
@@ -42,7 +45,7 @@ class App {
     // show the tooltip
     document.onmousedown = event => {
       // we check if there is a current selection
-      if(this.currentSelection) {
+      if(this.currentSelection && !this.isTooltip(event.target)) {
         this.currentSelection._tippy.hide();
         this.currentSelection = null;
       }
@@ -57,6 +60,15 @@ class App {
       content
     });
   }
+
+  /**
+   * check if given node is tooltip itself or its child
+   */
+  isTooltip(node) {
+    return this.currentSelection
+      ._tippy.popper.contains(node);
+  }
+
 
   getSelectionDetails() {
     const selection = window.getSelection();
@@ -92,8 +104,8 @@ class App {
   }
 }
 
-  const app = new App();
-  app.init();
+const app = new App();
+app.init();
 
 /*=========== Utils ============*/
 
