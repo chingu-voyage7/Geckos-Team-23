@@ -66,6 +66,27 @@ class App {
     });
   }
 
+  showDefinitionTooltip(reference) {
+    tippy(reference, {
+      content: "Loading",
+      onMount: () => {
+        this.currentTooltip._tippy.hide();
+        // setting the defintion tooltip as the current tooltip
+        this.currentTooltip = reference;
+      },
+      async onShow(tip) {
+        // fetch data and set it to content
+        tip.setContent(`Show definiton of: ${tip.reference.text}`);
+      },
+      onHidden(tip) {
+        tip.destroy();
+      },
+      onHide: () => {
+        this.currentTooltip = null;
+      }
+    });
+  }
+
   /**
    * check if given node is tooltip itself or its child
    */
@@ -111,12 +132,20 @@ class App {
     lookupButton.textContent = "lookup?";
     lookupButton.addEventListener(
       "click",
-      event => {
-        // Do something on lookup button click
-      },
+      this.handleLookupClick.bind(this, this.currentTooltip),
       false
     );
     return lookupButton;
+  }
+
+  handleLookupClick(reference) {
+    const virtualReference = {
+      getBoundingClientRect: reference.getBoundingClientRect,
+      clientHeight: reference.clientHeight,
+      clientWidth: reference.clientWidth,
+      text: reference.text
+    };
+    this.showDefinitionTooltip(virtualReference);
   }
 
   init() {
