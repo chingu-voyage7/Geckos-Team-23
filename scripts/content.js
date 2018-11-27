@@ -46,7 +46,6 @@ class App {
       // we check if there is a current tooltip
       if (this.currentTooltip && !this.isTooltip(event.target)) {
         this.currentTooltip._tippy.hide();
-        this.currentTooltip = null;
       }
     };
   }
@@ -55,7 +54,15 @@ class App {
     const content = this.createLookupButton(this.currentTooltip.text);
 
     tippy(this.currentTooltip, {
-      content
+      content,
+      // we destroy the tippy after it fully transitions out
+      onHidden(tip) {
+        tip.destroy();
+      },
+      // we remove reference to the tippy at the start of transitioning
+      onHide: () => {
+        this.currentTooltip = null;
+      }
     });
   }
 
