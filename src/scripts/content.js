@@ -1,3 +1,5 @@
+const DICTIONARY_API_KEY = "<<!--dict-api-key-->>";
+
 // setting non-changing options
 tippy.setDefaults({
   // tooltip will be shown "manually"
@@ -9,7 +11,7 @@ tippy.setDefaults({
   // showing arrow pointing to tooltip's reference
   arrow: true,
   // tooltip is interactive (clickable/hover'able')
-  interactive: true
+  interactive: true,
 });
 
 class App {
@@ -62,7 +64,7 @@ class App {
       // we remove reference to the tippy at the start of transitioning
       onHide: () => {
         this.currentTooltip = null;
-      }
+      },
     });
   }
 
@@ -83,7 +85,7 @@ class App {
       },
       onHide: () => {
         this.currentTooltip = null;
-      }
+      },
     });
   }
 
@@ -115,7 +117,7 @@ class App {
       },
       clientHeight: selectionRect.height,
       clientWidth: selectionRect.width,
-      text: selectionText
+      text: selectionText,
     };
 
     return virtualReference;
@@ -133,7 +135,7 @@ class App {
     lookupButton.addEventListener(
       "click",
       this.handleLookupClick.bind(this, this.currentTooltip),
-      false
+      false,
     );
     return lookupButton;
   }
@@ -143,7 +145,7 @@ class App {
       getBoundingClientRect: reference.getBoundingClientRect,
       clientHeight: reference.clientHeight,
       clientWidth: reference.clientWidth,
-      text: reference.text
+      text: reference.text,
     };
     this.showDefinitionTooltip(virtualReference);
   }
