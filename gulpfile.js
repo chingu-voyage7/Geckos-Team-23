@@ -30,13 +30,21 @@ const config = {
   },
 };
 
-
 gulp.task("replace", () => {
-  return gulp
-    .src(config.paths.contentScript.src)
-    // replace the occurence of this string with api key
-    .pipe(replace("<<!--dict-api-key-->>", config.dictionaryAPIKey))
-    .pipe(gulp.dest(config.paths.contentScript.dest));
+  return (
+    gulp
+      .src(config.paths.contentScript.src)
+      // replace the occurence of this string with api key
+      .pipe(replace("<<!--dict-api-key-->>", config.dictionaryAPIKey))
+      .pipe(gulp.dest(config.paths.contentScript.dest))
+  );
 });
 
-gulp.task("default", gulp.parallel("replace"));
+gulp.task("copy", () => {
+  return gulp
+    // we exclude the content script from the copied files
+    .src([...config.paths.others.src, `!${config.paths.contentScript.src}`])
+    .pipe(gulp.dest(config.paths.destBase));
+});
+
+gulp.task("default", gulp.parallel("replace", "copy"));
