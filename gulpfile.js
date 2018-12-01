@@ -31,7 +31,12 @@ const config = {
 };
 
 
-gulp.task("default", cb => {
-  // your tasks go here
-  cb();
+gulp.task("replace", () => {
+  return gulp
+    .src(config.paths.contentScript.src)
+    // replace the occurence of this string with api key
+    .pipe(replace("<<!--dict-api-key-->>", config.dictionaryAPIKey))
+    .pipe(gulp.dest(config.paths.contentScript.dest));
 });
+
+gulp.task("default", gulp.parallel("replace"));
