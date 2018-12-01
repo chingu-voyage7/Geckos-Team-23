@@ -1,0 +1,28 @@
+# Dependency directories
+node_modules/
+
+# dotenv environment variables file
+.env
+
+# vs code configuration folder
+.vscode/
+
+# Distribution folder
+dist/
+
+# Json lock file
+package-lock.json
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Logs
+logs
+*.log
+npm-debug.log*
