@@ -1,0 +1,35 @@
+.tippy-tooltip.material-theme {
+  background-color: #21252b;
+  border: none;
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tippy-tooltip.material-theme .tippy-arrow {
+  border-bottom-color: #21252b;
+  border-top-color: #21252b;
+}
+.tippy-lookup-button {
+  background: #485460;
+  border: none;
+  border-radius: 2px;
+  padding: 1px 6px;
+  color: #fff;
+  font-weight: 300;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 14px;
+  transition: background 0.4s ease-in-out;
+}
+
+.tippy-lookup-button:hover {
+  background: #808e9b;
+}
+
+.tippy-lookup-button:active,
+.tippy-lookup-button:focus {
+  outline: none;
+}
