@@ -57,6 +57,7 @@ class App {
 
     tippy(this.currentTooltip, {
       content,
+      theme: 'material',
       // we destroy the tippy after it fully transitions out
       onHidden(tip) {
         tip.destroy();
@@ -71,6 +72,7 @@ class App {
   showDefinitionTooltip(reference) {
     tippy(reference, {
       content: "Loading",
+      theme: 'material',
       onMount: () => {
         this.currentTooltip._tippy.hide();
         // setting the defintion tooltip as the current tooltip
