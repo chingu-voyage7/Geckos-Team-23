@@ -20,15 +20,14 @@ html {
 
 body {
   font-size: 1.3rem;
-  color: var(--primary-dark);
-  padding: 1.5rem;
 }
 
 .popup {
   display: flex;
   flex-direction: column;
   width: 20rem;
-  background: var(--primary-light);
+  padding: 1.5rem;
+  color: var(--primary-dark);
 }
 
 .header {
