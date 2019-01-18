@@ -1,6 +1,6 @@
 :root {
   --primary-dark: #4e707a;
-  --primary-light: #fdf3ff;
+  --primary-light: #f0f0f0;
   --shadow-dark: -0.5rem 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
 }
 
@@ -28,6 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 20rem;
+  background: var(--primary-light);
 }
 
 .header {
