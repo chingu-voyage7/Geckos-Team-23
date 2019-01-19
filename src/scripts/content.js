@@ -1,16 +1,9 @@
-const DICTIONARY_API_KEY = "<<!--dict-api-key-->>";
-
-// setting non-changing options
+// setting default options for tippy.js tooltip
 tippy.setDefaults({
-  // tooltip will be shown "manually"
   trigger: "manual",
-  // show tooltip immediately once the instance is created
   showOnInit: true,
-  // don't hide tooltip when its reference is clicked
   hideOnClick: false,
-  // showing arrow pointing to tooltip's reference
   arrow: true,
-  // tooltip is interactive (clickable/hover'able')
   interactive: true,
 });
 
@@ -58,11 +51,11 @@ class App {
     tippy(this.currentTooltip, {
       content,
       theme: "material",
-      // we destroy the tippy after it fully transitions out
+      // destroy tippy after it fully transitions out
       onHidden(tip) {
         tip.destroy();
       },
-      // we remove reference to the tippy at the start of transitioning
+      // remove reference to the tippy at the start of transitioning
       onHide: () => {
         this.currentTooltip = null;
       },
@@ -108,10 +101,7 @@ class App {
 
     const selectionRange = selection.getRangeAt(0);
 
-    // getBoundingClientRect will trigger the browser
-    // to calculate style and layout, a bit of performance bottleneck
-    // read about here:
-    // https://gist.github.com/paulirish/5d52fb081b3570c81e3a
+    //get current selelction 
     const selectionRect = selectionRange.getBoundingClientRect();
 
     const virtualReference = {
