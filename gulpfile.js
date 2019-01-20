@@ -11,24 +11,19 @@ dotenv.config();
  * configuration object
  */
 const config = {
-  // Merriam Webster Dictionary API KEY
-  dictionaryAPIKey: process.env.MW_Dictionary_API_KEY,
-  // Merriam Webster Thesaurus API KEY
-  thesaurusAPIKey: process.env.MW_Thesaurus_API_KEY,
+  dictionaryAPIKey: process.env.DICT_API,
   // path config
   paths: {
-    // destination base path
     destBase: "dist/",
     contentScript: {
-      src: "src/scripts/content.js",
+      src: "src/scripts/background.js",
       dest: "dist/scripts/",
     },
     others: {
-      // all files in the src folder and subfolders
       src: ["src/**/*"],
     },
   },
-};
+};  
 
 gulp.task("replace", () => {
   return (
