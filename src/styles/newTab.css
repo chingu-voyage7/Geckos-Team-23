@@ -241,23 +241,23 @@ body {
   cursor: pointer;
 }
 
-#red {
+#theme-red {
   background: var(--theme-red);
 }
 
-#green {
+#theme-green {
   background: var(--theme-green);
 }
 
-#teal {
+#theme-teal {
   background: var(--theme-teal);
 }
 
-#blue {
+#theme-blue {
   background: var(--theme-blue);
 }
 
-#violet {
+#theme-violet {
   background: var(--theme-violet);
 }
 

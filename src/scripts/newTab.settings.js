@@ -13,11 +13,11 @@ menuCloseBtn.onclick = function() {
 // themes
 const dashboard = document.getElementById("dashboard");
 
-const blueTheme = document.getElementById("blue");
-const greenTheme = document.getElementById("green");
-const redTheme = document.getElementById("red");
-const tealTheme = document.getElementById("teal");
-const violetTheme = document.getElementById("violet");
+const blueTheme = document.getElementById("theme-blue");
+const greenTheme = document.getElementById("theme-green");
+const redTheme = document.getElementById("theme-red");
+const tealTheme = document.getElementById("theme-teal");
+const violetTheme = document.getElementById("theme-violet");
 
 blueTheme.onclick = function() {
   dashboard.style.background = "#2a94ff";
