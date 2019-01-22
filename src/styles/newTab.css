@@ -121,6 +121,10 @@ body {
   box-shadow: 0rem 1rem 1.4rem rgba(0, 0, 0, 0.1);
 }
 
+.card:hover .delete-btn {
+  opacity: 1;
+}
+
 .card > .word-head {
   color: #2c2c2c;
   padding-bottom: 0.5rem;
@@ -164,15 +168,6 @@ body {
   opacity: 0;
   transition: opacity 0.4s;
   cursor: pointer;
-}
-
-.delete-btn::after {
-  content: "-";
-  font-weight: 700;
-}
-
-.delete-btn:hover {
-  opacity: 1;
 }
 
 .delete-btn:hover,
@@ -221,10 +216,6 @@ body {
   cursor: pointer;
   display: flex;
   justify-content: center;
-}
-
-#menu-close-btn:focus + #dashboard-settings {
-  opacity: 0;
 }
 
 #menu-close-btn:focus,
