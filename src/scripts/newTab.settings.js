@@ -11,7 +11,7 @@ menuCloseBtn.onclick = function() {
 };
 
 // themes
-const dashboard = document.getElementById("dashboard");
+const dashboard = document.getElementById("dashboard-tab");
 
 const blueTheme = document.getElementById("theme-blue");
 const greenTheme = document.getElementById("theme-green");
