@@ -62,7 +62,6 @@ body {
   border: 1px #2a94ff solid;
   border-radius: 0.2rem;
   box-shadow: var(--shadow-dark);
-  width: 13rem;
   padding: 1rem;
   margin-top: 2rem;
   cursor: pointer;
