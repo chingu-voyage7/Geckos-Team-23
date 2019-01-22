@@ -2,12 +2,12 @@ const settings = document.getElementById("dashboard-settings");
 
 const menuOpenBtn = document.getElementById("settings-btn");
 menuOpenBtn.onclick = function() {
-  settings.style.right = "0rem";
+  settings.style.transform = "translateX(0rem)";
 };
 
 const menuCloseBtn = document.getElementById("menu-close-btn");
 menuCloseBtn.onclick = function() {
-  settings.style.right = "-35rem";
+  settings.style.transform = "translate(35rem)";
 };
 
 // themes

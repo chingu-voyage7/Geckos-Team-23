@@ -185,10 +185,11 @@ body {
 /* dashboard settings css */
 #dashboard-settings {
   position: fixed;
-  right: -35rem;
+  right: 0rem;
   top: 0;
   width: 35rem;
   height: 100vh;
+  transform: translateX(35rem);
   padding: 0 1rem;
   background: var(--primary-light);
   box-shadow: var(--shadow-dark);
