@@ -51,8 +51,18 @@ body {
   padding: 2rem 0 0.4rem 0;
 }
 
-.popup-info > p {
+.info-text {
+  display: flex;
+  flex-direction: row;
   padding-bottom: 0.5rem;
+}
+
+.info-text > span {
+  padding-right: 0.5rem;
+}
+
+.info-text:last-child {
+  padding-bottom: 0;
 }
 
 #dashboard-btn {
