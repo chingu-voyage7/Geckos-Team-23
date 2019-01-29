@@ -14,7 +14,16 @@ To get started local development, create a file in the root of the repo named .e
 ### Installation
 
 1.  fork and clone the repo
+```
+git clone https://github.com/chingu-voyage7/Geckos-Team-23.git
+```
 2.  run yarn in root directory
-3.  enter DICT_API in env file
-4.  run gulp
-5.  load extension from dict folder in chrome or firefox
+```
+cd Geckos-Team-23/ && yarn install
+```
+3.  Add [dictionary api](https://dictionaryapi.com/products/index) key as an environment variable `DICT_API` to in `.env` file (in root directory)
+5.  run gulp
+```
+  gulp build
+```
+6.  load extension from dict folder in chrome or firefox
