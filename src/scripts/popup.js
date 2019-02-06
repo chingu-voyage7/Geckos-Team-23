@@ -1,9 +1,10 @@
 const dashboardBtn = document.getElementById("dashboard-btn");
 
 dashboardBtn.onclick = function() {
-  if (chrome) {
+  if (navigator.userAgent.includes("Chrome")) {
     chrome.tabs.create({ url: "chrome://newtab" });
   } else {
-    browser.tabs.create({ url: "about:newtab" });
+    const newtabURL = browser.runtime.getURL("views/newTab.html");
+    browser.tabs.create({ url: newtabURL });
   }
 };

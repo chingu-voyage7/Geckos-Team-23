@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Voyage-7 | https://chingu.io/",
   "engines": {
-    "node": "^10.0.0",
-    "yarn": "^1.12.3"
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0",
+    "yarn": ">=1.12.3"
   },
   "scripts": {
     "dev": "gulp",
